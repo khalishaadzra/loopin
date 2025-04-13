@@ -62,6 +62,105 @@
     </div>
   </nav>
 
+  <main class="p-20 md:p-15 space-y-10">
+  
+    <div id="categories" class="space-y-10">
+    </div>
+  </main>
+  
+  <script>
+    const categories = {
+      "Atasan": [
+        { name: "Kaos Pria", size: "XL", price: 50000, image: "/kaospria.png" },
+        { name: "Kemeja Lengan Panjang Pria", size: "XL", price: 55000, image: "/kemeja.png" },
+        { name: "Kaos Pria", size: "L", price: 65000, image: "/kaos.png" },
+        { name: "Kemeja Wanita", size: "M", price: 75000, image: "/kemejawanita.png" },
+        { name: "Blouse Putih Strip", size: "S", price: 50000, image: "/blouseputih.png" },
+        { name: "Jaket Hoodie Pria", size: "L", price: 85000, image: "/Jaket Hoodie.jpg" },
+        { name: "Cardigan Rajut", size: "M", price: 75000, image: "/Cardigan Rajut.jpg" },
+        { name: "Blazer Formal Wanita", size: "M", price: 75000, image: "/Blazer Formal Wanita.jpg" },
+      ],
+      "Bawahan": [
+        { name: "Celana Jogger", size: "M", price: 33000, image: "/jogger.png" },
+        { name: "Celana Cutbray", size: "S", price: 39000, image: "/cutbray.png" },
+        { name: "Rok Mini", size: "S", price: 30000, image: "/rokmini.png" },
+        { name: "Rok Coklat", size: "S", price: 50000, image: "/rokcoklat.png" },
+        { name: "Celana Wanita Cream", size: "M", price: 80000, image: "/celanacream.png" },
+        { name: "Rok Plisket Wanita", size: "M", price: 35000, image: "/Rok Plisket.jpg" },
+        { name: "Celana Jeans Slim Fit", size: "XL", price: 67000, image: "/Celana Jeans.jpg" },
+        { name: "Celana Jogger", size: "M", price: 33000, image: "/jogger.png" },
+        { name: "Celana Cutbray", size: "S", price: 39000, image: "/cutbray.png" },
+      ],
+      "Dress": [
+        { name: "Gamis Wanita", size: "XL", price: 70000, image: "/gamis.png" },
+        { name: "Mini Dress", size: "S", price: 88000, image: "/Dress Mini.jpg" },
+        { name: "One Set Kemeja & Rok Mini", size: "S", price: 79000, image: "/oneset.png" },
+        { name: "Elegant Dress", size: "S", price: 39000, image: "/elegantdress.png" },
+        { name: "Slim Dress", size: "S", price: 39000, image: "/slimdress.png" },
+        { name: "Gamis Wanita", size: "XL", price: 70000, image: "/gamis.png" },
+        { name: "Mini Dress", size: "S", price: 88000, image: "/Dress Mini.jpg" },
+        { name: "One Set Kemeja & Rok Mini", size: "S", price: 79000, image: "/oneset.png" },
+      ],
+      "Sepatu": [
+        { name: "Sepatu Hitam Putih", size: "42", price: 68000, image: "/Sepatu Hitam Putih.jpeg" },
+        { name: "Sepatu Sekolah", size: "41", price: 76000, image: "/Sepatu Sekolah.png" },
+        { name: "Sneakers", size: "40", price: 85000, image: "/sneakers.jpg" },
+        { name: "Heels Pantofel", size: "38", price: 95000, image: "/pantofel.png" },
+        { name: "Sepatu PDH Pria", size: "44", price: 82000, image: "/sepatupdh.jpg" },
+        { name: "Sepatu Hitam Putih", size: "42", price: 68000, image: "/Sepatu Hitam Putih.jpeg" },
+        { name: "Sepatu Sekolah", size: "41", price: 76000, image: "/Sepatu Sekolah.png" },
+        { name: "Sneakers", size: "40", price: 85000, image: "/sneakers.jpg" },
+        { name: "Heels Pantofel", size: "38", price: 95000, image: "/pantofel.png" },
+      ]
+    };
+  
+    const container = document.getElementById('categories');
+  
+    Object.entries(categories).forEach(([kategori, items]) => {
+      const slug = kategori.toLowerCase().replace(/\s+/g, '-');
+      const section = document.createElement('section');
+      section.classList.add('space-y-4');
+  
+      section.innerHTML = `
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <img src="/tag.png" alt="Tag" class="w-3 h-5">
+            <h2 class="text-xl font-semibold text-[#451515]">${kategori}</h2>
+          </div>
+          <div class="flex space-x-2">
+            <button onclick="scrollLeft('${slug}')" class="w-8 h-8 bg-[#A54D4D]-100 hover:bg-grey-200 rounded-full flex items-center justify-center">
+              <img src="/arrowl.svg" alt="Left" class="w-4 h-4 transform rotate-360">
+              <img src="/arrowl.svg" alt="Right" class="w-4 h-4 transform rotate-180">
+            </button>
+          </div>
+        </div>
+        <div id="${slug}" class="hide-scrollbar flex space-x-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
+          ${items.map(item => `
+            <div class="snap-start shrink-0 w-64 bg-[#F8F1E7] rounded-2xl border overflow-hidden shadow-sm hover:shadow-md transition">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-base font-medium text-[#451515]">${item.name}</h3>
+                <p class="text-sm text-gray-500">Ukuran: ${item.size}</p>
+                <p class="text-[#A54D4D] font-semibold mt-1">Rp${item.price.toLocaleString('id-ID')}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      container.appendChild(section);
+    });
+  
+    function scrollLeft(id) {
+      const container = document.getElementById(id);
+      container.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  
+    function scrollRight(id) {
+      const container = document.getElementById(id);
+      container.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  </script>
+
 <!-- Footer -->
   <footer class="bg-[#521018] text-white py-20 px-6 mt-16">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
