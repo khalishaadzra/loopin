@@ -13,7 +13,7 @@
 </head>
 <body class="bg-white text-[#521018]">
 
-<!-- Navbar -->
+   <!-- Navbar -->
    <nav class="bg-[#F8F1E7] flex items-center justify-between px-8 py-4 shadow-sm">
     <div class="flex-shrink-0">
       <img src="{{ asset('logo.svg') }}" alt="Loopin Logo" class="h-6">
