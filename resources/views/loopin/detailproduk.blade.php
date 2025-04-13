@@ -37,6 +37,50 @@
     </div>
   </nav>
 
-    </body>
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-12 py-10">
+    <h1 class="text-3xl font-bold mb-8">Detail Produk</h1>
+
+    <div class="flex space-x-12">
+      <!-- Thumbnail Images -->
+      <div class="flex flex-col space-y-4">
+        <img src="{{ asset('Belakang.jpeg') }}" alt="Gambar 1" class="w-24 rounded-lg">
+        <img src="{{ asset('Atas.jpeg') }}" alt="Gambar 2" class="w-24 rounded-lg">
+        <img src="{{ asset('Samping.jpeg') }}" alt="Gambar 3" class="w-24 rounded-lg">
+        <img src="{{ asset('Bawah.jpeg') }}" alt="Gambar 4" class="w-24 rounded-lg">
+      </div>
+
+      <!-- Main Image -->
+      <div class="flex-1">
+        <img src="{{ asset('Sepatu Hitam Putih.jpeg') }}" alt="Produk" class="w-full max-w-xl rounded-2xl border p-4">
+      </div>
+
+      <!-- Product Info -->
+      <div class="flex-1 space-y-4">
+        <h2 class="text-2xl font-bold text-black">Sepatu Hitam Putih</h2>
+        <p class="text-[#A54D4D] font-semibold">Sepatu</p>
+        <p class="text-xl font-medium text-black">Rp 68.000</p>
+        <p class="text-sm text-[#521018] leading-relaxed">
+          Sepatu kasual unisex dengan desain simpel dan klasik, cocok untuk segala gaya. Terbuat dari bahan kanvas berkualitas dan sol karet yang empuk, nyaman dipakai untuk aktivitas harian.
+        </p>
+        <hr class="my-4 border-[#E6D2AE]">
+        <div>
+          <span class="font-semibold text-black">Warna:</span>
+          <span class="ml-2">Hitam Putih</span>
+        </div>
+        <div>
+          <span class="font-semibold text-black">Size:</span>
+          <span class="ml-2 border border-black px-2 py-0.5 rounded text-sm">42</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex space-x-4 pt-4">
+          <button class="bg-[#F8F1E7] text-[#521018] font-semibold px-6 py-2 rounded hover:brightness-110">Keranjang</button>
+          <button class="bg-[#A54D4D] text-white font-semibold px-6 py-2 rounded hover:bg-[#8d3f3f]">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
 </html>
-   
