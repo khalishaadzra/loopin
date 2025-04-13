@@ -160,8 +160,9 @@
       container.scrollBy({ left: 300, behavior: 'smooth' });
     }
   </script>
+  
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-[#521018] text-white py-20 px-6 mt-16">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
       <div>
