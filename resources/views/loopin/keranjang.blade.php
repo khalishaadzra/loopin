@@ -41,6 +41,91 @@
     </div>
   </nav>
 
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-[#521018] mb-8">Keranjang</h1>
+
+    <!-- List Produk -->
+    <div class="space-y-6">
+      
+      <!-- Item 1 -->
+      <div class="flex items-center justify-between bg-white shadow rounded-xl p-4">
+        <div class="flex items-center space-x-4">
+          <img src="{{ asset('Sepatu Hitam Putih.jpeg') }}" alt="Sepatu Hitam Putih" class="w-14 h-14 object-cover">
+          <span class="text-[#521018] font-medium">Sepatu Hitam Putih</span>
+        </div>
+        <div class="flex items-center">
+          <div class="flex items-center space-x-6">
+            <span class="text-[#521018] font-semibold">Rp 68.000</span>
+            <button onclick="window.location.href='/checkout'" class="bg-[#A54D4D] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#8d3f3f]">
+                Checkout 1 item
+              </button>
+          </div>
+          <button class="ml-4">
+            <svg class="w-5 h-5 text-[#A54D4D] hover:text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-4 
+                0a1 1 0 00-1 1v1h6V4a1 1 0 00-1-1m-4 0h4" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="flex items-center justify-between bg-white shadow rounded-xl p-4">
+        <div class="flex items-center space-x-4">
+          <img src="{{ asset('Sepatu Sekolah.png') }}" alt="Sepatu Sekolah" class="w-14 h-14 object-cover">
+          <span class="text-[#521018] font-medium">Sepatu Sekolah</span>
+        </div>
+        <div class="flex items-center">
+          <div class="flex items-center space-x-6">
+            <span class="text-[#521018] font-semibold">Rp 76.000</span>
+            <button class="bg-[#A54D4D] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#8d3f3f]">Checkout 1 item</button>
+          </div>
+          <button class="ml-4">
+            <svg class="w-5 h-5 text-[#A54D4D] hover:text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-4 
+                0a1 1 0 00-1 1v1h6V4a1 1 0 00-1-1m-4 0h4" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="flex items-center justify-between bg-white shadow rounded-xl p-4">
+        <div class="flex items-center space-x-4">
+          <img src="{{ asset('Blouse Putih.png') }}" alt="Blouse Putih Strip" class="w-14 h-14 object-cover">
+          <span class="text-[#521018] font-medium">Blouse Putih Strip</span>
+        </div>
+        <div class="flex items-center">
+          <div class="flex items-center space-x-6">
+            <span class="text-[#521018] font-semibold">Rp 50.000</span>
+            <button class="bg-[#A54D4D] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#8d3f3f]">Checkout 1 item</button>
+          </div>
+          <button class="ml-4">
+            <svg class="w-5 h-5 text-[#A54D4D] hover:text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-4 
+                0a1 1 0 00-1 1v1h6V4a1 1 0 00-1-1m-4 0h4" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout All Button -->
+    <div class="mt-10 flex justify-end pr-12">
+        <a href="/checkout">
+          <button class="bg-[#A54D4D] text-white font-semibold text-base px-6 py-2.5 rounded-md hover:bg-[#8d3f3f]">
+            Checkout All
+          </button>
+        </a>
+      </div>    
+  </main>
 
 </body>
 </html>
