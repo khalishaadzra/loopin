@@ -48,3 +48,96 @@
     </div>
     </div>
   </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-6xl mx-auto p-8 flex flex-col lg:flex-row gap-12 bg-white mt-10 rounded-2xl shadow">
+    <!-- Left Form -->
+    <div class="w-full lg:w-1/2">
+      <h1 class="text-3xl font-bold mb-8">Checkout</h1>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-gray-600 mb-2">Nama Penerima</label>
+          <input type="text" class="w-full bg-[#F5F5F5] p-3 rounded focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-gray-600 mb-2">Alamat Lengkap</label>
+          <textarea rows="4" class="w-full bg-[#F5F5F5] p-3 rounded focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-gray-600 mb-2">Detail Alamat</label>
+          <input type="text" class="w-full bg-[#F5F5F5] p-3 rounded focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-gray-600 mb-2">Nomor telepon</label>
+          <input type="text" class="w-full bg-[#F5F5F5] p-3 rounded focus:outline-none" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Right Summary -->
+    <div class="w-full lg:w-1/2">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="Sepatu Hitam Putih.jpeg" class="w-12 h-12" />
+        <div class="flex justify-between w-full">
+          <p>Sepatu Hitam Putih</p>
+          <p class="text-[#521018] font-semibold">Rp 68.000</p>
+        </div>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span>Subtotal:</span>
+          <span>Rp 68.000</span>
+        </div>
+        <hr class="my-4 border-[#ddd]" />
+        <div class="flex justify-between">
+          <span>Shipping:</span>
+          <span>Rp 15.000</span>
+        </div>
+        <hr class="my-4 border-[#ddd]" />
+        <div class="flex justify-between font-bold text-lg mt-2">
+          <span>Total:</span>
+          <span>Rp 83.000</span>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="mt-6">
+        <label class="inline-flex items-center">
+          <input type="radio" checked class="form-radio text-[#A54D4D] mr-2" />
+          <span class="text-[#521018]">Cash on delivery</span>
+        </label>
+      </div>
+
+      <!-- Order Button = Label for the checkbox -->
+      <label for="popup-toggle" class="cursor-pointer bg-[#A54D4D] text-white w-full mt-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#8d3f3f] transition inline-block text-center">Order</label>
+    </div>
+  </div>
+
+    <!-- Modal Popup -->
+    <div id="popupSuccess" class="fixed inset-0 bg-black bg-opacity-40 items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full text-center relative">
+        <!-- Close Button -->
+        <label id="closePopup" class="absolute top-4 right-4 text-[#A54D4D] text-xl font-bold cursor-pointer">×</label>
+    
+        <!-- Image -->
+        <img src="{{ asset('Checkout Berhasil.png') }}" alt="Checkout Success" class="mx-auto mb-6 w-32 h-32" />
+    
+        <!-- Text -->
+        <h2 class="text-2xl font-bold text-[#521018] mb-2">Checkout berhasil !</h2>
+        <p class="text-[#A54D4D]">Barangmu akan segera dikirim</p>
+        </div>
+    </div>
+    
+    <script>
+        // Mendapatkan elemen tombol close dengan id 'closePopup'
+        document.getElementById('closePopup').addEventListener('click', function() {
+        // Menutup modal dengan menambahkan class 'hidden'
+        document.getElementById('popupSuccess').classList.add('hidden');
+        
+        // Mengarahkan pengguna ke halaman /home
+        window.location.href = '/home';
+        });
+    </script>
+
+</body>
+</html>
