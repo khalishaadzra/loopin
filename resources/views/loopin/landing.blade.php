@@ -6,7 +6,6 @@
     <title>Loopin-landing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="icon" type="image/x-icon" href="/Group.png">
     <style>
         html {
             scroll-behavior: smooth;
@@ -29,6 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="font-sans text-gray-800">
+
 
     <!-- Navbar -->
     <nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white sticky top-0 z-50">
