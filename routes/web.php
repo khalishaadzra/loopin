@@ -2,11 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/coba', function () {
-    return view('welcome');
-});
-
-Route::get('/landing', function () {
+Route::get('/', function () {
     return view('loopin.landing');
 });
 

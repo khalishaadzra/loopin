@@ -6,6 +6,7 @@
     <title>Loopin-landing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="icon" type="image/x-icon" href="/Group.png">
     <style>
         html {
             scroll-behavior: smooth;

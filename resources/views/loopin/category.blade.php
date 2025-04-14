@@ -6,6 +6,7 @@
   <title>Loopin - Category</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="/Group.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <script>
     tailwind.config = {
