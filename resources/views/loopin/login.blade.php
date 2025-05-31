@@ -26,16 +26,18 @@
                 <h2 class="text-2xl font-semibold text-black mb-6">Log in to Loopin</h2>
 
                 <!-- Form -->
-                <form action="#" method="POST" class="space-y-4">
-                    <input type="text" name="email" placeholder="Email or Phone Number" class="w-full border-b border-gray-400 bg-transparent focus:outline-none py-2 placeholder-gray-600">
+                <form action="/login" method="POST" class="space-y-4">
+                    @csrf
+                    <input type="text" name="email" placeholder="Email or Phone Number" class="w-full border-b border-gray-400 bg-transparent focus:outline-none py-2 placeholder-gray-600" value="{{ old('email') }}">
+                    
                     <input type="password" name="password" placeholder="Password" class="w-full border-b border-gray-400 bg-transparent focus:outline-none py-2 placeholder-gray-600">
-
+                
                     <!-- Buttons -->
                     <div class="flex items-center justify-between mt-6">
-                        <button type="button" onclick="window.location.href='/home'" class="bg-[#A54D4D] text-white px-6 py-2 rounded-md hover:bg-[#521018] transition">
+                        <button type="submit" class="bg-[#A54D4D] text-white px-6 py-2 rounded-md hover:bg-[#521018] transition">
                             Log In
                         </button>
-                        <a href="#" class="text-[#A54D4D] text-sm hover:underline">Forgot Password?</a>
+                        {{-- <a href="#" class="text-[#A54D4D] text-sm hover:underline">Forgot Password?</a> --}}
                     </div>
                 </form>
 
