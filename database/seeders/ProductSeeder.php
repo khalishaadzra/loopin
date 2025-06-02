@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Sepatu kasual unisex dengan desain simpel dan klasik, cocok untuk segala gaya. Terbuat dari bahan kanvas berkualitas dan sol karet yang empuk, nyaman dipakai untuk aktivitas harian.',
                 'price' => 68000,
                 'stock' => 20,
-                'main_image_filename' => 'Sepatu Hitam Putih.jpeg', // Gambar utama dari detailproduk.blade.php
+                'main_image_filename' => 'Sepatu Hitam Putih.jpeg', 
                 'attributes' => ['size' => '42', 'color' => 'Hitam Putih'],
                 'is_new_product' => true,
             ]);
@@ -74,7 +74,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Kaos polos nyaman dari Loopin.',
                 'price' => 85000,
                 'stock' => 50,
-                'main_image_filename' => 'kaospolosloopin.png', // Ganti nama file
+                'main_image_filename' => 'kaospria.png', // Ganti nama file
                 'attributes' => ['size' => 'L', 'color' => 'Hitam'],
                 'is_new_product' => true,
             ]);
@@ -89,7 +89,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Dress cantik dengan motif bunga untuk musim panas.',
                 'price' => 250000,
                 'stock' => 15,
-                'main_image_filename' => 'dressbunga.png', // Ganti nama file
+                'main_image_filename' => 'gamis.png', // Ganti nama file
                 'attributes' => ['size' => 'M', 'color' => 'Kuning Motif'],
                 'is_new_product' => true,
             ]);
