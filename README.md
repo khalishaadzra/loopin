@@ -1,65 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Loopin - Web Belanja Thrifting (Second-Hand Fashion)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Nama Anggota Kelompok** :
+1. Khalisha Adzraini Arif (2308107010031)
+2. Zalvia Inasya Zulna    (2308107010041)
 
-## About Laravel
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Loopin** adalah aplikasi web e-commerce berbasis Laravel yang menyediakan berbagai barang fashion thrifting (second-hand) seperti atasan, bawahan, dress, dan sepatu. Aplikasi ini memudahkan pengguna untuk membeli pakaian bekas berkualitas secara online dengan antarmuka yang simpel dan modern.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Teknologi yang Digunakan
+- **Frontend**:
+  - Blade Template Engine (Laravel)
+  - HTML, CSS, JavaScript
+- **Backend**:
+  - PHP (Laravel Framework)
+  - Routing, Controller, Middleware, dan Model Laravel
+  - Database: MySQL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Utama & Halaman
 
-## Learning Laravel
+### 1. Landing Page
+- Gambar besar (hero banner) yang memperkenalkan Loopin.
+- Navigasi ke halaman login dan register.
+- Tombol **“Belanja Sekarang”** mengarah ke halaman produk.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 2. Halaman Register
+- Formulir pendaftaran:
+  - Nama lengkap
+  - Email
+  - Password
+  - Konfirmasi Password
+- Validasi input.
+- Setelah daftar, otomatis redirect ke login.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 3. Halaman Login 
+- Form login pengguna.
+- Redirect ke halaman **beranda user** setelah berhasil login.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 4. Beranda / Home
+- Menampilkan semua produk thrifting yang tersedia.
+- Produk ditampilkan dalam bentuk grid (gambar, nama, harga).
+- Terdapat tombol **"Detail"** untuk melihat info produk lengkap.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 5. Halaman Produk Per Kategori 
+- Kategori yang tersedia:
+  - **Atasan**
+  - **Bawahan**
+  - **Dress**
+  - **Sepatu**
+- Produk ditampilkan sesuai dengan kategori yang dipilih user.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 6. Halaman Detail Produk 
+- Menampilkan informasi lengkap:
+  - Gambar produk
+  - Nama barang
+  - Harga
+  - Deskripsi
+  - Ukuran
+  - Ketersediaan stok
+- Tombol **"Tambah ke Keranjang"**
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 7. Halaman Keranjang 
+- Daftar produk yang sudah dipilih user.
+- Dapat menghapus produk dari keranjang.
+- Total harga ditampilkan di bagian bawah.
+- Tombol untuk lanjut ke **checkout**.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 8. Halaman Checkout 
+- Form input data pembeli:
+  - Nama penerima
+  - Alamat lengkap
+  - No. HP
+  - Metode pembayaran
+- Setelah submit, akan muncul halaman konfirmasi.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 9. Halaman Riwayat Transaksi 
+- Menampilkan daftar pesanan yang pernah dilakukan.
+- Setiap riwayat menampilkan:
+  - Nama produk
+  - Total pembayaran
+  - Status transaksi
+
+---
+
+### 10. Halaman Profil
+- Menampilkan dan mengedit informasi user.
+- User bisa ubah nama, email, password.
+
+## Fitur CRUD dalam Aplikasi
+
+| Entitas / Data       | Create (C)           | Read (R)                   | Update (U)               | Delete (D)               |
+|----------------------|----------------------|----------------------------|--------------------------|--------------------------|
+| **User**             | Register             | Login & lihat profil       | Edit profil              | –                        |
+| **Produk**           | – (Hanya bisa lihat) | Tampil di semua halaman    | –                        | –                        |
+| **Keranjang**        | Tambah produk        | Lihat isi keranjang        | –                        | Hapus produk             |
+| **Transaksi**        | Buat saat checkout   | Lihat di riwayat           | –                        | –                        |
