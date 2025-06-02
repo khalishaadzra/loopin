@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name')->nullable(); // Tambahkan
+            $table->string('last_name')->nullable();  // Tambahkan
             $table->string('email')->unique();
+            $table->text('address')->nullable();      // Tambahkan (gunakan text untuk alamat yang lebih panjang)
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // Tabel password_reset_tokens dan sessions biarkan seperti adanya
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

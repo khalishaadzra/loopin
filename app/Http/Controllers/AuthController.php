@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password; // Untuk validasi password yang lebih baik
 
 class AuthController extends Controller
 {
@@ -17,18 +18,26 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'address' => 'nullable|string|max:500', 
+            'password' => ['required', 'confirmed', Password::min(6)->mixedCase()->numbers()], 
         ]);
 
+        // Buat nama lengkap jika diperlukan untuk field 'name' (jika kamu masih punya kolom 'name')
+        // $fullName = $request->first_name . ($request->last_name ? ' ' . $request->last_name : '');
+
         User::create([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            // 'name' => $fullName, // Jika masih ada kolom 'name'
             'email' => $request->email,
+            'address' => $request->address,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login')->with('success', 'Account created. Please login.');
+        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan masuk.');
     }
 
     public function showLogin()
@@ -38,16 +47,19 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([ // Validasi input login
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->boolean('remember'))) { 
             $request->session()->regenerate();
-            return redirect('/home');
+            return redirect()->route('home');
         }
 
         return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ]);
+            'email' => 'Kredensial yang diberikan tidak cocok dengan catatan kami.',
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)
@@ -56,6 +68,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('login'); 
     }
 }
