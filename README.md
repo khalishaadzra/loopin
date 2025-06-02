@@ -105,5 +105,5 @@
 |----------------------|----------------------|----------------------------|--------------------------|--------------------------|
 | **User**             | Register             | Login & lihat profil       | Edit profil              | –                        |
 | **Produk**           | – (Hanya bisa lihat) | Tampil di semua halaman    | –                        | –                        |
-| **Keranjang**        | Tambah produk        | Lihat isi keranjang        | –                        | Hapus produk             |
+| **Keranjang**        | Tambah produk        | Lihat isi keranjang        | Edit Pesanan             | Hapus produk             |
 | **Transaksi**        | Buat saat checkout   | Lihat di riwayat           | –                        | –                        |
