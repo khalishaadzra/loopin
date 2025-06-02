@@ -35,9 +35,8 @@
     {{-- Script untuk tombol close jika diperlukan (meski link ke home sudah ada) --}}
     <script>
         document.getElementById('closePopup').addEventListener('click', function(e) {
-            e.preventDefault(); // Hentikan aksi default jika ini tombol, bukan link
+            e.preventDefault(); 
             document.getElementById('popupSuccess').classList.add('hidden');
-            // Jika ingin tetap di halaman tapi modal hilang (tidak disarankan jika sudah redirect)
         });
     </script>
 </body>

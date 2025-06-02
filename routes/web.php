@@ -13,43 +13,6 @@ Route::get('/', function () {
     return view('loopin.landing');
 });
 
-Route::get('/home', function () {
-    return view('loopin.home');
-});
-
-Route::get('/explore', function () {
-    return view('loopin.explore');
-});
-
-Route::get('/signup', function () {
-    return view('loopin.signup');
-});
-
-Route::get('/login', function () {
-    return view('loopin.login');
-});
-
-Route::get('/detailproduk', function () {
-    return view('loopin.detailproduk');
-});
-
-Route::get('/keranjang', function () {
-    return view('loopin.keranjang');
-});
-
-Route::get('/checkout', function () {
-    return view('loopin.checkout');
-});
-
-Route::get('/myprofile', function () {
-    return view('loopin.myprofile');
-});
-
-Route::get('/category', function () {
-    return view('loopin.category');
-});
-
-
 Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup'); 
 Route::post('/signup', [AuthController::class, 'signup']);
 
@@ -62,7 +25,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index']) 
     ->middleware('auth')
     ->name('home'); 
-
 
 // Route untuk halaman Explore (daftar semua produk dengan filter & search)
 Route::get('/explore', [ProductController::class, 'index'])->name('products.explore');
@@ -82,7 +44,7 @@ Route::get('/keranjang', [CartController::class, 'index'])->name('cart.index');
 
 Route::post('/keranjang/tambah', [CartController::class, 'add'])->name('cart.add');
 Route::post('/keranjang/update/{itemId}', [CartController::class, 'update'])->name('cart.update');
-Route::get('/keranjang/hapus/{itemId}', [CartController::class, 'remove'])->name('cart.remove'); // Atau POST
+Route::get('/keranjang/hapus/{itemId}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/keranjang/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 Route::middleware('auth')->group(function () {
@@ -99,12 +61,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/myprofile/orders/{order}', [ProfileController::class, 'showOrder'])->name('profile.orders.show'); // Detail satu pesanan
 
 });
-
-
-
-
-
-
-
-
-

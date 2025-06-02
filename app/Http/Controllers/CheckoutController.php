@@ -93,7 +93,7 @@ class CheckoutController extends Controller
                 'shipping_cost' => $shippingCost,
                 'status' => 'Pesanan Diterima',
                 'payment_method' => 'Cash on Delivery',
-                'payment_status' => 'Belum Dibayar (COD)',
+                'payment_status' => 'Berhasil (COD)',
                 'recipient_name' => $request->nama_penerima,
                 'shipping_address' => $request->alamat_lengkap,
                 'shipping_address_detail' => $request->detail_alamat,

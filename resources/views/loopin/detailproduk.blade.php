@@ -28,9 +28,9 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .thumbnail-active {
-            border-color: #A54D4D; /* Warna primary */
+            border-color: #A54D4D; 
             border-width: 2px;
-            box-shadow: 0 0 0 1px #A54D4D; /* Efek glow tipis */
+            box-shadow: 0 0 0 1px #A54D4D; 
         }
         /* Tambahan untuk aspect ratio jika tidak menggunakan plugin Tailwind */
         .aspect-w-1 { position: relative; padding-bottom: 100%; }
@@ -200,18 +200,6 @@
                                {{ $product->stock < 1 ? 'disabled' : '' }}>
                     </div>
 
-                    {{-- Contoh jika ada pilihan variasi size yang ingin dikirim ke keranjang --}}
-                    {{-- @if(isset($product->attributes['available_sizes']) && is_array($product->attributes['available_sizes']) && count($product->attributes['available_sizes']) > 0)
-                    <div class="mb-4">
-                        <label for="selected_size" class="font-semibold text-dark text-sm">Pilih Ukuran:</label>
-                        <select name="attributes[size]" id="selected_size" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md {{ $product->stock < 1 ? 'bg-gray-100 cursor-not-allowed' : '' }}" {{ $product->stock < 1 ? 'disabled' : '' }}>
-                            @foreach($product->attributes['available_sizes'] as $size)
-                                <option value="{{ $size }}">{{ $size }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @endif --}}
-
                     <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                       <button type="submit" name="action" value="add_to_cart"
                               class="w-full sm:w-auto flex-grow bg-[#F8F1E7] text-dark font-semibold px-6 py-3 rounded-md hover:brightness-105 border border-gray-300 transition flex items-center justify-center {{ $product->stock < 1 ? 'opacity-50 cursor-not-allowed' : '' }}"
@@ -298,7 +286,7 @@
             if (thumbnailContainer) {
                 thumbnailContainer.querySelectorAll('.cursor-pointer').forEach(img => {
                     img.classList.remove('thumbnail-active');
-                    img.classList.add('border-transparent'); // Pastikan border transparan kembali
+                    img.classList.add('border-transparent'); 
                 });
             }
             if (clickedThumbnail) {

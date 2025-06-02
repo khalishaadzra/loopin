@@ -15,7 +15,7 @@
 </head>
 <body class="bg-white text-[#521018]">
 
-  <!-- Navbar (sama seperti sebelumnya, pastikan route-nya benar) -->
+  <!-- Navbar -->
   <nav class="bg-[#F8F1E7] flex items-center justify-between px-8 py-4 shadow-sm sticky top-0 z-40">
     <div class="flex-shrink-0">
       <img src="{{ asset('logo.svg') }}" alt="Loopin Logo" class="h-6">
@@ -93,10 +93,6 @@
           <label for="detail_alamat" class="block text-sm font-medium text-gray-700 mb-1">Detail Alamat (Opsional)</label>
           <input type="text" name="detail_alamat" id="detail_alamat" value="{{ old('detail_alamat') }}" class="w-full bg-[#F5F5F5] p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary placeholder-gray-400" placeholder="Contoh: Blok C No. 5, Patokan dekat masjid" />
         </div>
-        {{-- Tombol Order dipindah ke bagian summary jika mau digabung, atau tetap di sini --}}
-        {{-- <button type="submit" class="cursor-pointer bg-primary text-white w-full mt-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#8d3f3f] transition inline-block text-center">
-            Buat Pesanan
-        </button> --}}
     </div>
 
     <!-- Right Summary -->
@@ -149,7 +145,7 @@
         class="bg-primary text-white w-full mt-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#8d3f3f] transition inline-block text-center
                {{ (!isset($cartItems) || $cartItems->isEmpty()) ? 'opacity-50 cursor-not-allowed' : '' }}"
         {{ (!isset($cartItems) || $cartItems->isEmpty()) ? 'disabled' : '' }}>
-        Pesan Sekarang {{-- <--- UBAH TEKS DI SINI --}}
+        Pesan Sekarang 
       </button>
 
     </form> 

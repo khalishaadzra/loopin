@@ -8,6 +8,9 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -15,52 +18,70 @@
           colors: {
             primary: '#A54D4D',
             secondary: '#E6D2AE',
-            background: '#F9F3EB',
-            dark: '#521018'
+            background: '#F9F3EB', 
           }
         }
       }
     }
   </script>
+  <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
-<body class="bg-white text-[#521018]">
+<body class="bg-background text-dark"> 
 
 <!-- Navbar -->
-<nav class="bg-[#F8F1E7] flex items-center justify-between px-8 py-4 shadow-sm">
+<nav class="bg-[#F8F1E7] flex items-center justify-between px-6 md:px-8 py-4 shadow-sm sticky top-0 z-50">
   <div class="flex-shrink-0">
-    {{-- Pastikan logo.svg ada di public/logo.svg --}}
-    <img src="{{ asset('logo.svg') }}" alt="Loopin Logo" class="h-6">
+    <a href="{{ route('home') }}">
+      <img src="{{ asset('logo.svg') }}" alt="Loopin Logo" class="h-6">
+    </a>
   </div>
-  <div class="flex space-x-20">
-    {{-- Menggunakan route helper untuk link dinamis --}}
-    <a href="{{ route('home') }}" class="text-white font-semibold bg-[#A54D4D] px-4 py-1 rounded-full">Home</a>
-    <a href="{{ route('products.explore') }}" class="text-black font-bold hover:text-[#A54D4D]">Explore</a>
-    <a href="{{ route('categories.index') }}" class="text-black font-bold hover:text-[#A54D4D]">Category</a>
+  <div class="hidden md:flex space-x-12 lg:space-x-20">
+    {{-- Link Home dengan style aktif --}}
+    <a href="{{ route('home') }}" class="text-white font-semibold bg-primary px-4 py-1 rounded-full">Home</a>
+    <a href="{{ route('products.explore') }}" class="text-dark font-semibold hover:text-primary transition-colors">Explore</a>
+    <a href="{{ route('categories.index') }}" class="text-dark font-semibold hover:text-primary transition-colors">Category</a>
   </div>
-  <div class="flex items-center space-x-4">
-    {{-- Fitur search bisa diimplementasikan nanti --}}
-    <input type="text" placeholder="Lagi Mau Cari Apa?" class="bg-white text-sm px-4 py-1.5 rounded-md shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A54D4D]">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#521018]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1118 10.5a7.48 7.48 0 01-1.35 6.15z" />
-    </svg>
-    <a href="{{ route('cart.index') }}" class="p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#521018]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334 13l.94 2h8.412l3.264-7H6.25l-1-2H2v2h2l3.6 7.59L5.25 17h13v-2H7.334z"/>
-        </svg>
+  <div class="flex items-center space-x-3 md:space-x-4">
+      <form action="{{ route('products.explore') }}" method="GET" class="hidden sm:flex items-center">
+          <input type="text" name="search" placeholder="Lagi Mau Cari Apa?" value="{{ request('search') }}" class="bg-white text-sm px-3 py-1.5 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+          <button type="submit" class="ml-2 p-1 text-dark hover:text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1118 10.5a7.48 7.48 0 01-1.35 6.15z" /></svg>
+          </button>
+      </form>
+      <a href="{{ route('cart.index') }}" class="p-2 relative text-dark hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334 13l.94 2h8.412l3.264-7H6.25l-1-2H2v2h2l3.6 7.59L5.25 17h13v-2H7.334z"/></svg>
+          
+          @if(Cart::getTotalQuantity() > 0)
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">{{ Cart::getTotalQuantity() }}</span>
+          @endif
       </a>
-    {{-- Cek apakah user login --}}
-    @auth
-      <div onclick="window.location.href='{{ route('profile.index') }}'" class="cursor-pointer bg-[#A54D4D] text-white rounded-full w-7 h-7 flex items-center justify-center font-semibold text-sm">
-          {{-- Ambil inisial nama user atau ikon default --}}
+      @auth
+          <div data-url="{{ route('profile.index') }}" id="profileLinkNavbar" class="cursor-pointer bg-primary text-white rounded-full w-7 h-7 flex items-center justify-center font-semibold text-sm hover:bg-opacity-80 transition-colors">
           {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+          </div>
+      @else
+          <a href="{{ route('login') }}" class="text-sm font-semibold text-dark hover:text-primary">Login</a>
+      @endauth
+      <div class="md:hidden">
+          <button id="mobileMenuButton" class="text-dark focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
       </div>
-    @else
-      {{-- Jika belum login, mungkin tampilkan tombol login/register --}}
-      <a href="{{ route('login') }}" class="text-sm font-semibold">Login</a>
-      {{-- <a href="{{ route('register') }}" class="text-sm font-semibold ml-2">Register</a> --}}
-    @endauth
   </div>
 </nav>
+<!-- Mobile Menu  -->
+<div id="mobileMenu" class="hidden md:hidden bg-[#F8F1E7] shadow-lg py-2 fixed top-[68px] left-0 right-0 z-40">
+    <a href="{{ route('home') }}" class="block px-6 py-2 text-dark font-semibold hover:bg-primary hover:text-white">Home</a>
+    <a href="{{ route('products.explore') }}" class="block px-6 py-2 text-dark font-semibold hover:bg-primary hover:text-white">Explore</a>
+    <a href="{{ route('categories.index') }}" class="block px-6 py-2 text-dark font-semibold hover:bg-primary hover:text-white">Category</a>
+    <form action="{{ route('products.explore') }}" method="GET" class="px-6 py-2 flex items-center border-t border-gray-200 mt-1 pt-3">
+        <input type="text" name="search" placeholder="Cari produk..." value="{{ request('search') }}" class="w-full bg-white text-sm px-3 py-1.5 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary">
+        <button type="submit" class="ml-2 p-1 text-dark hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1118 10.5a7.48 7.48 0 01-1.35 6.15z" /></svg>
+        </button>
+    </form>
+</div>
+<!-- End Navbar -->
 
 <!-- Banner -->
 <section class="mt-6 px-6 md:px-12">
@@ -83,8 +104,6 @@
         <a href="{{ route('categories.show', $category->slug) }}">
           <div class="bg-[#F8F1E7] rounded-3xl py-8 flex flex-col items-center shadow-sm
                       transition-transform transform hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-              {{-- Asumsi $category->icon_filename berisi nama file ikon, misal "atasanc.svg" --}}
-              {{-- dan file tersebut ada di public/ --}}
               <img src="{{ asset($category->icon_filename) }}" alt="{{ $category->name }}" class="w-12 h-12 mb-2" />
               <p class="font-medium text-primary">{{ $category->name }}</p>
           </div>
@@ -109,12 +128,10 @@
       @foreach($newProducts as $product)
         <a href="{{ route('products.show', $product->slug) }}">
           <div class="bg-[#F8F1E7] rounded-lg p-4 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
-              {{-- Asumsi $product->main_image_filename berisi nama file gambar, misal "rokmini.png" --}}
-              {{-- dan file tersebut ada di public/ --}}
               <img src="{{ asset($product->main_image_filename) }}" alt="{{ $product->name }}" class="w-full h-40 object-contain mb-2">
               <h4 class="text-sm font-medium">{{ $product->name }}</h4>
               <p class="text-[#A54D4D] text-sm font-bold">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-              {{-- Menampilkan atribut 'size' jika ada --}}
+              
               @if(isset($product->attributes['size']))
                 <p class="text-xs text-gray-500">{{ $product->attributes['size'] }}</p>
               @endif

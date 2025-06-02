@@ -67,8 +67,7 @@
     @endif
 
     @if(isset($cartItems) && $cartItems->count() > 0)
-        <form action="{{ route('checkout.index') }}" method="GET" id="checkoutForm"> {{-- Form untuk checkout item terpilih --}}
-            {{-- Tidak perlu @csrf karena ini GET untuk ke halaman checkout, atau POST jika langsung proses --}}
+        <form action="{{ route('checkout.index') }}" method="GET" id="checkoutForm"> 
             <div class="space-y-6 mb-8">
                 @foreach($cartItems as $item)
                 <div class="flex flex-col sm:flex-row items-center justify-between bg-white shadow rounded-xl p-4">
@@ -117,9 +116,8 @@
                     </button>
                 </div>
             </div>
-        </form> {{-- Akhir form checkout --}}
+        </form> 
     @else
-        {{-- ... (Tampilan keranjang kosong tetap sama) ... --}}
     @endif
 </main>
 
@@ -160,7 +158,7 @@
                     const newSubtotal = itemData.price * parseInt(this.value);
                     document.getElementById(`subtotal-${itemId}`).textContent = 'Subtotal: Rp ' + newSubtotal.toLocaleString('id-ID');
                 }
-                calculateSelectedTotal(); // Hitung ulang total terpilih saat kuantitas berubah
+                calculateSelectedTotal(); 
             });
         });
 

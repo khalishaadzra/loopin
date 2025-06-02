@@ -144,7 +144,7 @@
 
             <!-- Pagination Links -->
             <div class="mt-10 md:mt-12">
-                {{ $products->links() }} {{-- Pastikan $products adalah objek Paginator --}}
+                {{ $products->links() }}
             </div>
         @else
             <div class="text-center py-10 bg-white rounded-lg shadow-md">
@@ -179,7 +179,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-lg mb-3 text-white">Navigasi Cepat</h3>
-          {{-- Ambil beberapa kategori untuk footer, bisa di-pass dari AppServiceProvider atau ambil langsung jika hanya sedikit --}}
+         
           @php
               $footerCategories = \App\Models\Category::orderBy('name')->take(4)->get();
           @endphp

@@ -57,7 +57,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#521018]" viewBox="0 0 24 24" fill="currentColor">
             <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334 13l.94 2h8.412l3.264-7H6.25l-1-2H2v2h2l3.6 7.59L5.25 17h13v-2H7.334z"/>
             </svg>
-            {{-- Idealnya $cartItemCount dikirim juga ke view ini dari AppServiceProvider atau base controller --}}
+           
             @if(Cart::getTotalQuantity() > 0)
               <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">{{ Cart::getTotalQuantity() }}</span>
             @endif
@@ -81,15 +81,6 @@
                 <img src="{{ asset('tag.png') }}" alt="Tag" class="w-3 h-5">
                 <h2 class="text-xl font-semibold text-[#451515]">{{ $category->name }}</h2>
               </div>
-              {{-- Tombol scroll bisa ditambahkan jika item banyak dan overflow --}}
-              {{-- <div class="flex space-x-2">
-                <button onclick="scrollHorizontal('{{ $category->slug }}', -300)" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center">
-                    <img src="{{ asset('arrowl.svg') }}" alt="Left" class="w-4 h-4">
-                </button>
-                <button onclick="scrollHorizontal('{{ $category->slug }}', 300)" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center">
-                    <img src="{{ asset('arrowr.svg') }}" alt="Right" class="w-4 h-4">
-                </button>
-              </div> --}}
               <a href="{{ route('categories.show', $category->slug) }}" class="text-xs sm:text-sm text-primary hover:underline font-medium">
                 Lihat Semua di {{ $category->name }} →
             </a>

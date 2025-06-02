@@ -140,11 +140,11 @@
 
         <!-- Pagination Links -->
         <div class="mt-12">
-            {{ $products->appends(request()->query())->links() }} {{-- appends() untuk menjaga query filter saat ganti halaman --}}
+            {{ $products->appends(request()->query())->links() }}
         </div>
     @else
         <div class="text-center py-10">
-            <img src="{{ asset('no-results.svg') }}" alt="Tidak Ada Hasil" class="mx-auto mb-6 w-40 h-40"> {{-- Buat gambar no-results.svg --}}
+            <img src="{{ asset('no-results.svg') }}" alt="Tidak Ada Hasil" class="mx-auto mb-6 w-40 h-40"> 
             <p class="text-xl text-gray-600 mb-2">Oops! Produk tidak ditemukan.</p>
             <p class="text-gray-500 mb-6">Coba kata kunci lain atau reset filter pencarian Anda.</p>
             <a href="{{ route('products.explore') }}" class="bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-[#8d3f3f]">
@@ -154,7 +154,7 @@
     @endif
   </section>
 
-  <!-- Footer (sama seperti sebelumnya) -->
+  <!-- Footer -->
     <footer class="bg-[#521018] text-white py-20 px-6 mt-16">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>

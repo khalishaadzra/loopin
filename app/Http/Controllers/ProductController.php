@@ -56,19 +56,12 @@ class ProductController extends Controller
         return view('loopin.explore', compact('products', 'categories'));
     }
 
-    // ... (method show untuk detail produk tetap sama) ...
     public function show(Product $product)
     {
         $product->load(['images' => function ($query) {
             $query->orderBy('order', 'asc');
         }, 'category']);
 
-        $relatedProducts = Product::where('category_id', $product->category_id)
-                                   ->where('id', '!=', $product->id)
-                                   ->inRandomOrder() // Atau latest()
-                                   ->take(4)
-                                   ->get();
-
-        return view('loopin.detailproduk', compact('product', 'relatedProducts'));
+        return view('loopin.detailproduk', compact('product'));
     }
 }
