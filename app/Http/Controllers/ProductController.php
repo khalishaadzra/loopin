@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Category; // Untuk filter kategori jika perlu
+use App\Models\Category; 
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::query()->with('category')->latest(); // Eager load kategori
+        $query = Product::query()->with('category')->latest(); 
 
         // Fitur Pencarian
         if ($request->filled('search')) {
@@ -41,14 +41,14 @@ class ProductController extends Controller
         }
 
         // Urutkan (contoh)
-        $sortBy = $request->get('sort_by', 'created_at'); // default sort by created_at
-        $sortOrder = $request->get('sort_order', 'desc'); // default sort order desc
-        if (in_array($sortBy, ['name', 'price', 'created_at'])) { // Validasi kolom sort
+        $sortBy = $request->get('sort_by', 'created_at');
+        $sortOrder = $request->get('sort_order', 'desc'); 
+        if (in_array($sortBy, ['name', 'price', 'created_at'])) {
              $query->orderBy($sortBy, $sortOrder);
         }
 
 
-        $products = $query->paginate(12); // 12 produk per halaman, sesuaikan
+        $products = $query->paginate(12); 
 
         // Untuk filter dropdowns
         $categories = Category::orderBy('name')->get();

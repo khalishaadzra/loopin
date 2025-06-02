@@ -101,13 +101,13 @@
                                 </div>
                                 {{-- Menampilkan status yang sudah disederhanakan --}}
                                 <span class="mt-2 sm:mt-0 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700 self-start sm:self-center">
-                                    {{ $order->status }} {{-- Akan menampilkan "Pesanan Diterima" --}}
+                                    {{ $order->status }} 
                                 </span>
                             </div>
                             <div class="p-4">
                                 <div class="mb-3">
                                     <p class="text-sm font-medium text-gray-700 mb-1">Item:</p>
-                                    @foreach($order->items->take(3) as $item) {{-- Tampilkan maks 3 item sebagai preview --}}
+                                    @foreach($order->items->take(3) as $item) 
                                         <div class="flex items-center space-x-3 mb-1.5 text-sm">
                                             @if($item->product)
                                             <img src="{{ asset($item->product->main_image_filename ?? 'placeholder.png') }}" alt="{{ $item->product_name }}" class="w-10 h-10 object-cover rounded">
@@ -148,7 +148,7 @@
                 </div>
             @else
                 <div class="text-center py-10">
-                    <img src="{{ asset('no-orders.svg') }}" alt="Tidak Ada Pesanan" class="mx-auto mb-6 w-32 h-32"> {{-- Buat gambar no-orders.svg --}}
+                    <img src="{{ asset('no-orders.svg') }}" alt="Tidak Ada Pesanan" class="mx-auto mb-6 w-32 h-32"> 
                     <p class="text-xl text-gray-600">Anda belum memiliki riwayat pesanan.</p>
                     <a href="{{ route('products.explore') }}" class="inline-block mt-6 bg-primary text-white font-semibold px-6 py-2.5 rounded-md hover:bg-[#8d3f3f] transition">
                         Mulai Belanja Sekarang

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('icon_filename')->nullable(); // e.g., atasanc.svg
+            $table->string('icon_filename')->nullable(); 
             $table->timestamps();
         });
     }

@@ -59,7 +59,7 @@ class ProfileController extends Controller
         }
 
         if ($user->isDirty()) {
-            $user->save(); // Cukup save(), saveOrFail() bisa terlalu agresif untuk form biasa
+            $user->save(); 
             return redirect()->route('profile.index')->with('success', 'Profil berhasil diperbarui!');
         } else {
             return redirect()->route('profile.index')->with('info', 'Tidak ada perubahan pada profil.');

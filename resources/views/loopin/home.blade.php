@@ -18,7 +18,7 @@
           colors: {
             primary: '#A54D4D',
             secondary: '#E6D2AE',
-            background: '#F9F3EB', 
+            background: '#FFFFFF', 
           }
         }
       }

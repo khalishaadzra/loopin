@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request; // Product model tidak perlu di-import di sini jika relasi sudah benar
+use Illuminate\Http\Request; 
 
 class CategoryController extends Controller
 {
@@ -21,7 +21,7 @@ class CategoryController extends Controller
         ->orderBy('name')
         ->get();
 
-        return view('loopin.category', compact('categoriesWithProducts')); // Ini view yang sebelumnya (daftar semua kategori dengan slider)
+        return view('loopin.category', compact('categoriesWithProducts'));
     }
 
     /**
@@ -31,10 +31,10 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $products = $category->products()
-                            ->where('stock', '>', 0) // Hanya produk yang ada stok
+                            ->where('stock', '>', 0) 
                             ->latest()
-                            ->paginate(12); // Atau jumlah yang kamu inginkan
-
+                            ->paginate(12); 
+                            
         return view('loopin.category_show', compact('category', 'products'));
     }
 }

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->decimal('total_amount', 12, 2);
             $table->decimal('shipping_cost', 10, 2)->default(0);
             // PENYESUAIAN STATUS
-            $table->string('status')->default('Pesanan Diterima'); // Status default setelah checkout
-            $table->string('payment_method')->default('Cash on Delivery'); // Hanya COD
-            $table->string('payment_status')->default('Belum Dibayar (COD)'); // Status pembayaran untuk COD
+            $table->string('status')->default('Pesanan Diterima'); 
+            $table->string('payment_method')->default('Cash on Delivery'); 
+            $table->string('payment_status')->default('Belum Dibayar (COD)'); 
             $table->string('recipient_name');
             $table->text('shipping_address');
             $table->string('shipping_address_detail')->nullable();

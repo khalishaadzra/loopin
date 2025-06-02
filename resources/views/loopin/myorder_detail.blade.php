@@ -27,9 +27,9 @@
     </script>
     <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
-<body class="bg-background text-dark"> 
+<body class="bg-grey-200 text-dark"> 
 
-    <!-- Navbar (Sama seperti di myorder.blade.php) -->
+    <!-- Navbar -->
     <nav class="bg-[#F8F1E7] flex items-center justify-between px-6 md:px-8 py-4 shadow-sm sticky top-0 z-50">
         <div class="flex-shrink-0">
           <a href="{{ route('home') }}">
@@ -146,7 +146,6 @@
                                 <td class="py-3 px-4">
                                     <div class="flex items-center space-x-3">
                                         @if($item->product)
-                                            {{-- Jika gambar dari storage/app/public (default Laravel) --}}
                                             <img src="{{ asset('storage/' . $item->product->main_image_filename) }}"
                                                  alt="{{ $item->product->name }}"
                                                  class="w-16 h-16 object-cover rounded-md shadow-sm"
@@ -158,8 +157,6 @@
                                         @endif
                                         <div>
                                             <p class="text-sm font-medium text-dark">{{ $item->product->name ?? $item->product_name ?? 'Nama Produk Tidak Tersedia' }}</p>
-                                            {{-- Tambahkan detail atribut jika ada dan relevan --}}
-                                            {{-- <p class="text-xs text-gray-500">Variasi: Merah, XL</p> --}}
                                         </div>
                                     </div>
                                 </td>

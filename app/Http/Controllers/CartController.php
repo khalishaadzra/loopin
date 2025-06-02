@@ -4,19 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Cart; // Pastikan sudah install: composer require darryldecode/cart
+use Cart; 
 
 class CartController extends Controller
 {
     public function index()
     {
-        $cartItems = Cart::getContent()->sortBy('name'); // Ambil semua item, urutkan berdasarkan nama
+        $cartItems = Cart::getContent()->sortBy('name'); 
         $cartTotal = Cart::getTotal();
-        $cartItemCount = Cart::getTotalQuantity(); // Jumlah total item di keranjang
-
-        // Jika kamu mau, kamu bisa menambahkan informasi lain ke setiap item saat menambahkannya ke keranjang
-        // Atau, jika gambar tidak disimpan di atribut cart, kamu bisa mengambilnya dari model Product
-        // Tapi idealnya, saat Cart::add(), sertakan path gambar di attributes.
+        $cartItemCount = Cart::getTotalQuantity(); 
 
         return view('loopin.keranjang', compact('cartItems', 'cartTotal', 'cartItemCount'));
     }
@@ -36,11 +32,7 @@ class CartController extends Controller
             return redirect()->back()->with('error', 'Stok produk tidak mencukupi.')->withInput();
         }
 
-        // Jika action adalah "buy_now", kita bisa menyimpan ID produk ini di session
-        // untuk diproses khusus di halaman checkout.
         if ($request->input('action') === 'buy_now') {
-            // Opsi: Kosongkan keranjang dulu jika mau "beli sekarang" hanya item ini
-            // Cart::clear(); // Hati-hati, ini mengosongkan seluruh keranjang! Mungkin perlu konfirmasi.
 
             // Tambahkan item yang mau dibeli sekarang
             Cart::add([
@@ -55,7 +47,7 @@ class CartController extends Controller
             ]);
             // Simpan ID item yang baru ditambahkan untuk di-checkout langsung
             session(['buy_now_item_id' => $product->id]);
-            return redirect()->route('checkout.index'); // Langsung ke checkout
+            return redirect()->route('checkout.index'); 
         }
 
         // Jika action "add_to_cart" atau tidak ada action
@@ -73,27 +65,27 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
 
-    public function update(Request $request, $itemId) // $itemId adalah ID item di keranjang (sama dengan product_id)
+    public function update(Request $request, $itemId) 
     {
         $request->validate([
             'quantity' => 'required|integer|min:1',
         ]);
 
-        $product = Product::find($itemId); // Dapatkan produk untuk cek stok
+        $product = Product::find($itemId); 
         if ($product && $product->stock < $request->quantity) {
             return redirect()->route('cart.index')->with('error', 'Stok produk tidak mencukupi untuk jumlah yang diminta.');
         }
 
         Cart::update($itemId, [
             'quantity' => [
-                'relative' => false, // false berarti set jumlah baru, true berarti tambah/kurang dari yg ada
+                'relative' => false, 
                 'value' => $request->quantity
             ],
         ]);
         return redirect()->route('cart.index')->with('success', 'Jumlah produk di keranjang berhasil diperbarui.');
     }
 
-    public function remove($itemId) // $itemId adalah ID item di keranjang (sama dengan product_id)
+    public function remove($itemId) 
     {
         Cart::remove($itemId);
         return redirect()->route('cart.index')->with('success', 'Produk berhasil dihapus dari keranjang.');

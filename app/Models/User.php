@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail; // Hapus jika tidak pakai verifikasi email
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable // Jika tidak pakai MustVerifyEmail, hapus implementasinya
+class User extends Authenticatable 
 {
     use HasFactory, Notifiable;
 
@@ -19,7 +18,6 @@ class User extends Authenticatable // Jika tidak pakai MustVerifyEmail, hapus im
     protected $fillable = [
         'first_name',
         'last_name',
-        // 'name', // Hapus jika menggunakan first_name & last_name
         'email',
         'password',
         'address',
@@ -40,7 +38,7 @@ class User extends Authenticatable // Jika tidak pakai MustVerifyEmail, hapus im
      *
      * @var array<string, string>
      */
-    protected function casts(): array // Untuk Laravel 10+
+    protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',

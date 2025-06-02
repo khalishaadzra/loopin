@@ -51,7 +51,7 @@ class ProductSeeder extends Seeder
                 ]
             );
             Product::updateOrCreate(
-                ['slug' => Str::slug('Kaos Pria Row 3')], // Kaos Pria pertama dari spreadsheet
+                ['slug' => Str::slug('Kaos Pria Row 3')], 
                 [
                     'category_id' => $catAtasan->id,
                     'name' => 'Kaos Pria',
@@ -77,10 +77,10 @@ class ProductSeeder extends Seeder
                 ]
             );
             Product::updateOrCreate(
-                ['slug' => Str::slug('Kemeja Lengan Panjang Pria')], // Slug diperbaiki
+                ['slug' => Str::slug('Kemeja Lengan Panjang Pria')],
                 [
                     'category_id' => $catAtasan->id,
-                    'name' => 'Kemeja Lengan Panjaang Pria', // Sesuai spreadsheet
+                    'name' => 'Kemeja Lengan Panjaang Pria', 
                     'description' => 'Kemeja lengan panjang pria untuk tampilan rapi.',
                     'price' => $cleanPrice('Rp55.000'),
                     'stock' => 50,
@@ -90,7 +90,7 @@ class ProductSeeder extends Seeder
                 ]
             );
             Product::updateOrCreate(
-                ['slug' => Str::slug('Kaos Pria Row 6')], // Kaos Pria kedua dari spreadsheet
+                ['slug' => Str::slug('Kaos Pria Row 6')], 
                 [
                     'category_id' => $catAtasan->id,
                     'name' => 'Kaos Pria',
@@ -160,11 +160,11 @@ class ProductSeeder extends Seeder
                 [
                     'category_id' => $catAtasan->id,
                     'name' => 'Kaos Polos Loopin',
-                    'description' => 'Kaos polos nyaman dari Loopin.', // Deskripsi dari kode lama
-                    'price' => 85000, // Harga dari kode lama
-                    'stock' => 50,    // Stock dari kode lama
-                    'main_image_filename' => 'kaospria.png', // Gambar dari kode lama (atau sesuaikan)
-                    'attributes' => ['size' => 'L', 'color' => 'Hitam'], // Atribut dari kode lama
+                    'description' => 'Kaos polos nyaman dari Loopin.', 
+                    'price' => 85000, 
+                    'stock' => 50,   
+                    'main_image_filename' => 'kaospria.png', 
+                    'attributes' => ['size' => 'L', 'color' => 'Hitam'], 
                     'is_new_product' => true,
                 ]
             );
@@ -186,31 +186,31 @@ class ProductSeeder extends Seeder
                 ]
             );
             Product::updateOrCreate(
-                ['slug' => Str::slug('Rok Mini Abu-Abu')], // Menggantikan 'Rok Mini' generik dari kode lama
+                ['slug' => Str::slug('Rok Mini Abu-Abu')], 
                 [
                     'category_id' => $catBawahan->id,
                     'name' => 'Rok Mini Abu-Abu',
-                    'description' => 'Rok mini trendy warna abu-abu untuk gaya kasual.', // Deskripsi disesuaikan
+                    'description' => 'Rok mini trendy warna abu-abu untuk gaya kasual.', 
                     'price' => $cleanPrice('Rp30.000'),
-                    'stock' => 25, // Stock dari 'Rok Mini' kode lama
+                    'stock' => 25, 
                     'main_image_filename' => 'rookmini.png',
                     'attributes' => ['size' => 'S'],
                     'is_new_product' => true,
                 ]
             );
             Product::updateOrCreate(
-                ['slug' => Str::slug('Rok Mini Coklat')], // Menggantikan 'Rok Coklat' dari kode lama
+                ['slug' => Str::slug('Rok Mini Coklat')], 
                 [
                     'category_id' => $catBawahan->id,
                     'name' => 'Rok Mini Coklat',
-                    'description' => 'Rok panjang coklat elegan.', // Deskripsi dari 'Rok Coklat' kode lama
+                    'description' => 'Rok panjang coklat elegan.',
                     'price' => $cleanPrice('Rp50.000'),
-                    'original_price' => 135000, // Dari 'Rok Coklat' kode lama
-                    'stock' => 10,               // Dari 'Rok Coklat' kode lama
+                    'original_price' => 135000, 
+                    'stock' => 10,               
                     'main_image_filename' => 'rokcoklat.png',
-                    'attributes' => ['size' => 'S'], // Ukuran dari spreadsheet
+                    'attributes' => ['size' => 'S'], 
                     'is_new_product' => true,
-                    'is_big_deal' => true,    // Dari 'Rok Coklat' kode lama
+                    'is_big_deal' => true,    
                 ]
             );
             Product::updateOrCreate(
@@ -340,11 +340,11 @@ class ProductSeeder extends Seeder
                 [
                     'category_id' => $catDress->id,
                     'name' => 'Dress Bunga Musim Panas',
-                    'description' => 'Dress cantik dengan motif bunga untuk musim panas.', // Deskripsi dari kode lama
-                    'price' => 250000, // Harga dari kode lama
-                    'stock' => 15,     // Stock dari kode lama
-                    'main_image_filename' => 'Dress Bunga Musim Panas.jpg', // Gambar dari kode lama (sesuaikan jika perlu, spreadsheet juga ada 'gamis.png' untuk 'Gamis Wanita')
-                    'attributes' => ['size' => 'M', 'color' => 'Kuning Motif'], // Atribut dari kode lama
+                    'description' => 'Dress cantik dengan motif bunga untuk musim panas.', 
+                    'price' => 250000, 
+                    'stock' => 15,     
+                    'main_image_filename' => 'Dress Bunga Musim Panas.jpg', 
+                    'attributes' => ['size' => 'M', 'color' => 'Kuning Motif'], 
                     'is_new_product' => true,
                 ]
             );
@@ -359,9 +359,9 @@ class ProductSeeder extends Seeder
                     'name' => 'Sepatu Hitam Putih',
                     'description' => 'Sepatu kasual unisex dengan desain simpel dan klasik, cocok untuk segala gaya. Terbuat dari bahan kanvas berkualitas dan sol karet yang empuk, nyaman dipakai untuk aktivitas harian.', // Deskripsi dari kode lama
                     'price' => $cleanPrice('Rp68.000'),
-                    'stock' => 20, // Stock dari kode lama
+                    'stock' => 20, 
                     'main_image_filename' => 'Sepatu Hitam Putih.jpeg',
-                    'attributes' => ['size' => '42', 'color' => 'Hitam Putih'], // Atribut lengkap dari kode lama
+                    'attributes' => ['size' => '42', 'color' => 'Hitam Putih'], 
                     'is_new_product' => true,
                 ]
             );
@@ -396,14 +396,14 @@ class ProductSeeder extends Seeder
                 [
                     'category_id' => $catSepatu->id,
                     'name' => 'Sepatu Sekolah',
-                    'description' => 'Sepatu sekolah nyaman dan tahan lama.', // Deskripsi dari kode lama
-                    'price' => $cleanPrice('Rp76.000'), // Harga dari spreadsheet
-                    'original_price' => 110000,         // Dari kode lama
-                    'stock' => 15,                       // Dari kode lama
-                    'main_image_filename' => 'Sepatu Sekolah.png', // Dari spreadsheet (kode lama 'sepatu2.png')
-                    'attributes' => ['size' => '40'],    // Dari spreadsheet
-                    'is_new_product' => true,            // Bisa juga true jika ini update terbaru
-                    'is_big_deal' => true,               // Dari kode lama
+                    'description' => 'Sepatu sekolah nyaman dan tahan lama.', 
+                    'price' => $cleanPrice('Rp76.000'),
+                    'original_price' => 110000,         
+                    'stock' => 15,                       
+                    'main_image_filename' => 'Sepatu Sekolah.png', 
+                    'attributes' => ['size' => '40'],    
+                    'is_new_product' => true,           
+                    'is_big_deal' => true,               
                 ]
             );
             Product::updateOrCreate(

@@ -43,7 +43,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('signup') }}" method="POST" class="space-y-4"> {{-- Ganti action ke named route --}}
+                <form action="{{ route('signup') }}" method="POST" class="space-y-4"> 
                     @csrf
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

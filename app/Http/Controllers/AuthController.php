@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password; // Untuk validasi password yang lebih baik
+use Illuminate\Validation\Rules\Password; 
 
 class AuthController extends Controller
 {
@@ -25,13 +25,9 @@ class AuthController extends Controller
             'password' => ['required', 'confirmed', Password::min(6)->mixedCase()->numbers()], 
         ]);
 
-        // Buat nama lengkap jika diperlukan untuk field 'name' (jika kamu masih punya kolom 'name')
-        // $fullName = $request->first_name . ($request->last_name ? ' ' . $request->last_name : '');
-
         User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            // 'name' => $fullName, // Jika masih ada kolom 'name'
             'email' => $request->email,
             'address' => $request->address,
             'password' => Hash::make($request->password),
@@ -47,7 +43,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([ // Validasi input login
+        $credentials = $request->validate([ 
             'email' => 'required|email',
             'password' => 'required',
         ]);

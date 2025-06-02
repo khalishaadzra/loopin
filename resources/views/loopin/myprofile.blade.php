@@ -88,12 +88,7 @@
             <aside class="w-full lg:w-1/3 bg-white rounded-xl p-6 shadow-lg">
                 <div class="flex flex-col items-center mb-6">
                     <div class="w-28 h-28 md:w-32 md:h-32 bg-gray-200 rounded-full flex items-center justify-center text-5xl text-gray-400 mb-4 overflow-hidden">
-                        {{-- Jika ada foto profil:
-                        @if($user->profile_photo_path)
-                            <img src="{{ asset('storage/'.$user->profile_photo_path) }}" alt="Foto Profil {{ $user->name }}" class="w-full h-full object-cover">
-                        @else --}}
-                            <i class="fas fa-user text-6xl text-gray-400"></i> {{-- Ikon default jika tidak ada foto --}}
-                        {{-- @endif --}}
+                            <i class="fas fa-user text-6xl text-gray-400"></i> 
                     </div>
                     <h2 class="text-xl font-semibold text-dark">{{ $user->name ?? 'Nama Pengguna' }}</h2>
                     <p class="text-sm text-gray-500">{{ $user->email ?? 'email@example.com' }}</p>
@@ -113,7 +108,6 @@
                         <i class="fas fa-box-open w-5 text-center"></i>
                         <span>Riwayat Pesanan</span>
                     </a>
-                    {{-- Tambahkan link lain jika perlu, misal Alamat Tersimpan, dll. --}}
                 </nav>
 
                 <div class="mt-8 pt-6 border-t border-gray-200 text-center">
@@ -182,12 +176,6 @@
                               @error('address') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                           </div>
                       </div>
-                      {{-- Jika email mau full width, pindahkan ke sini --}}
-                      {{-- <div>
-                          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                          <input type="email" name="email" id="email" value="{{ old('email', $user->email ?? '') }}" required placeholder="email@example.com" class="mt-1 w-full p-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
-                          @error('email') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                      </div> --}}
                       <div class="pt-2 text-right">
                           <button type="submit" class="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-opacity-80 transition font-medium shadow-sm">
                               <i class="fas fa-save mr-2"></i>Simpan Informasi
@@ -212,7 +200,6 @@
               <div>
                   <label for="new_password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Konfirmasi Password Baru</label>
                   <input type="password" name="new_password_confirmation" id="new_password_confirmation" required placeholder="Ulangi password baru" class="w-full p-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
-                  {{-- Tidak perlu @error untuk new_password_confirmation karena 'confirmed' sudah menanganinya dan pesannya akan muncul di field 'new_password' --}}
               </div>
               <div class="pt-2 text-right">
                   <button type="submit" class="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-opacity-80 transition font-medium shadow-sm">
@@ -248,10 +235,6 @@
           <div>
             <h3 class="font-semibold text-lg mb-3 text-white">Navigasi Cepat</h3>
             @php
-                // Ambil kategori dari database untuk footer
-                // Sebaiknya ini dilakukan di AppServiceProvider jika ingin tersedia global
-                // atau di-pass dari controller jika hanya untuk halaman ini.
-                // Untuk contoh ini, kita query langsung di Blade (kurang ideal untuk performa).
                 $footerCategories = \App\Models\Category::orderBy('name')->take(4)->get();
             @endphp
             @if($footerCategories->count() > 0)
