@@ -193,7 +193,7 @@ class ProductSeeder extends Seeder
                     'description' => 'Rok mini trendy warna abu-abu untuk gaya kasual.', 
                     'price' => $cleanPrice('Rp30.000'),
                     'stock' => 25, 
-                    'main_image_filename' => 'rookmini.png',
+                    'main_image_filename' => 'rokmini.png',
                     'attributes' => ['size' => 'S'],
                     'is_new_product' => true,
                 ]
